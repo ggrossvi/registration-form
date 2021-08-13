@@ -22,7 +22,7 @@ function Register() {
   function createPost(event) {
     event.preventDefault();
     axios
-      .post(`${baseURL}/buddy`, {
+      .post("/buddy", {
         first_name: fname,
         // last_name: "",
         // address: " 301 1st ave n",
