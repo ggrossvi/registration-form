@@ -11,7 +11,7 @@ function Register() {
   // const[morning,setMorning] = useState('')
   const [email, setEmail] = useState('')
   //const [password, setPassword] = useState('')
-  const [post, setPost] = React.useState(null);
+  // const [post, setPost] = React.useState(null);
 
   // React.useEffect(() => {
   //   axios.get(`${baseURL}/buddy`).then((response) => {
@@ -19,7 +19,8 @@ function Register() {
   //   });
   // }, []);
 
-  function createPost() {
+  function createPost(event) {
+    event.preventDefault();
     axios
       .post(`${baseURL}/buddy`, {
         first_name: fname,
@@ -29,7 +30,7 @@ function Register() {
         // city: "",
         // state: "",
         zipcode: zipcode,
-        email: "treasuresoftheandes@yahoo.com",
+        email: email,
         morning: true,
         afternoon: false,
         evening: true,
@@ -38,7 +39,7 @@ function Register() {
       .then((response) => {
         console.log("it worked!")
         console.log(response)
-        setPost(response.data);
+        // setPost(response.data);
       });
   }
 
@@ -111,7 +112,7 @@ function Register() {
 
 
   return (
-    <form >
+    <form onSubmit={createPost}>
       <div>
         <label>First name</label>
         <input
@@ -191,7 +192,7 @@ function Register() {
     } */}
       </ul>
 
-      <button type="submit" onClick={createPost}>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   )
 }
