@@ -16,7 +16,7 @@ const times = [
 ]
 function Register() {
   const [fname, setFname] = useState('')
-  //const[lname, setLname] = useState('')
+  const[lname, setLname] = useState('')
   const [zipcode, setZipCode] = useState('')
   
   const [email, setEmail] = useState('')
@@ -34,18 +34,21 @@ function Register() {
     event.preventDefault();
     axios
       .post("/buddy", {
-        first_name: fname,
+        // given_name and family_name have this because of login object having these names.
+        given_name : fname,
+        family_name: lname,
+        // first_name: fname,
         // last_name: "",
         // address: " 301 1st ave n",
         // apt: "",
         // city: "",
         // state: "",
-        zipcode: zipcode,
+        // zipcode: zipcode,
         email: email,
-        morning: checkboxes[0],
-        afternoon: checkboxes[1],
-        evening: checkboxes[2],
-        bio: "I like to play bridge"
+        // morning: checkboxes[0],
+        // afternoon: checkboxes[1],
+        // evening: checkboxes[2],
+        // bio: "I like to play bridge"
       })
       .then((response) => {
         console.log("it worked!")
@@ -60,24 +63,24 @@ function Register() {
   // };
 
 
-  // const handleLnameChange = event => {
-  //   setLname(event.target.value)
-  // };
+  const handleLnameChange = event => {
+    setLname(event.target.value)
+  };
   const handleFnameChange = event => {
     setFname(event.target.value)
   };
-  const handleZipCodeChange = event => {
-    setZipCode(event.target.value)
-  };
+  // const handleZipCodeChange = event => {
+  //   setZipCode(event.target.value)
+  // };
   
   const handleEmailChange = event => {
     setEmail(event.target.value)
   };
 
-  const handleCheckboxChange = (event, index) => {
-    checkboxes[index] = event.target.checked;
-    setCheckboxes(checkboxes);
-}
+//   const handleCheckboxChange = (event, index) => {
+//     checkboxes[index] = event.target.checked;
+//     setCheckboxes(checkboxes);
+// }
 
  
 
@@ -106,7 +109,7 @@ function Register() {
           value={fname}
         />
       </div>
-      {/* <div>
+       <div>
     <label>Last name</label>
     <input
     type="lname"
@@ -115,8 +118,9 @@ function Register() {
     onChange={handleLnameChange}
     value={lname}
     />
-    </div> */}
-      <div>
+    </div> 
+
+      {/*<div>
         <label>Zip</label>
         <input
           type="zip"
@@ -125,7 +129,7 @@ function Register() {
           onChange={handleZipCodeChange}
           value={zipcode}
         />
-      </div>
+      </div>*/}
 
       <div>
         <label>Email address</label>
@@ -138,31 +142,29 @@ function Register() {
         />
       </div>
 
-      <h3>Select Times</h3>
-      <ul className="toppings-list">
-        {times.map(({time}, index) => (
-    
-        <li key={index}>
-        <div className="times-list-item">
-            <div className="left-section">
-            <input
-                type="checkbox"
-                id={`custom-checkbox-${index}`}
-                name={time}
-                //  checked={checkedState[index]}
-                 onChange={(event) => handleCheckboxChange(event, index)}
-            />
-            <label htmlFor={`custom-checkbox-${index}`}>{time}</label>
-            </div>
-            
-        </div>
-        </li>
-    
-    )
-    )
-    }
-      </ul>
-
+      {/*<h3>Select Times</h3>
+        <ul className="times-list">
+          {times.map(({time}, index) => (
+      
+          <li key={index}>
+          <div className="times-list-item">
+              <div className="left-section">
+                <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={time}
+                  
+                    onChange={(event) => handleCheckboxChange(event, index)}
+                />
+                <label htmlFor={`custom-checkbox-${index}`}>{time}</label>
+              </div>      
+          </div>
+          </li>
+            )
+            )
+          }
+        </ul>
+        */}   
       <button type="submit">Submit</button>
     </form>
   )
