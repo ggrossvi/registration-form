@@ -3,14 +3,25 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 const baseURL = "http:localhost:5000"
-
+const times = [
+  {
+      time: "Morning"
+  },
+  {
+      time: "Afternoon"
+  },
+  {
+      time: "Evening"
+  }
+]
 function Register() {
   const [fname, setFname] = useState('')
   //const[lname, setLname] = useState('')
   const [zipcode, setZipCode] = useState('')
-  // const[morning,setMorning] = useState('')
+  
   const [email, setEmail] = useState('')
-  //const [password, setPassword] = useState('')
+  const [checkboxes, setCheckboxes] = useState([false, false, false]);
+ 
   // const [post, setPost] = React.useState(null);
 
   // React.useEffect(() => {
@@ -31,9 +42,9 @@ function Register() {
         // state: "",
         zipcode: zipcode,
         email: email,
-        morning: true,
-        afternoon: false,
-        evening: true,
+        morning: checkboxes[0],
+        afternoon: checkboxes[1],
+        evening: checkboxes[2],
         bio: "I like to play bridge"
       })
       .then((response) => {
@@ -58,15 +69,17 @@ function Register() {
   const handleZipCodeChange = event => {
     setZipCode(event.target.value)
   };
-  // const handleMorningChange = event => {
-  //   setMorning(event.target.value)
-  // };
+  
   const handleEmailChange = event => {
     setEmail(event.target.value)
   };
-  // const handlePasswordChange = event => {
-  //   setPassword(event.target.value)
-  // };
+
+  const handleCheckboxChange = (event, index) => {
+    checkboxes[index] = event.target.checked;
+    setCheckboxes(checkboxes);
+}
+
+ 
 
   // const handleSubmit = event => {
   //   event.preventDefault();
@@ -79,37 +92,7 @@ function Register() {
   //           You can replace this alert with your process`);
   // };
 
-  //checkbox code
-
-  // times is in util folder
-
-  // const [checkedState, setCheckedState] = useState(
-  //   new Array(times.length).fill(false)
-  // );
-
-
-  // const handleOnChange = (position) => {
-  //   console.log("onchange handler called")
-
-  //   const updatedCheckedState = checkedState.map((item, index) =>
-  //     index === position ? !item : item
-  //   );
-
-  //   setCheckedState(updatedCheckedState);
-
-  // }
-  //   if (updatedCheckedState !=[]){
-  //       const totalPrice = updatedCheckedState.reduce(
-  //         (currentState, index) => {
-  //           if (currentState === true) {
-  //             return times[index].time;
-  //           }
-  //           return times[index].time;
-  //         },
-  //         0
-  //       );
-  //   }
-
+  
 
   return (
     <form onSubmit={createPost}>
@@ -143,18 +126,7 @@ function Register() {
           value={zipcode}
         />
       </div>
-      {/*
-    <div>
-    <label>Morning</label>
-    <input
-    type="checkbox"
-    name="morning"
-    checked
-    onChange={handleMorningChange}
-    value={morning}
-    />
-    </div>
-    */}
+
       <div>
         <label>Email address</label>
         <input
@@ -168,7 +140,7 @@ function Register() {
 
       <h3>Select Times</h3>
       <ul className="toppings-list">
-        {/* {times.map(({time}, index) => (
+        {times.map(({time}, index) => (
     
         <li key={index}>
         <div className="times-list-item">
@@ -177,9 +149,8 @@ function Register() {
                 type="checkbox"
                 id={`custom-checkbox-${index}`}
                 name={time}
-                value={time}
                 //  checked={checkedState[index]}
-                //  onChange={() => handleOnChange(index)}
+                 onChange={(event) => handleCheckboxChange(event, index)}
             />
             <label htmlFor={`custom-checkbox-${index}`}>{time}</label>
             </div>
@@ -189,7 +160,7 @@ function Register() {
     
     )
     )
-    } */}
+    }
       </ul>
 
       <button type="submit">Submit</button>
