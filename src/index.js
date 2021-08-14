@@ -23,8 +23,9 @@ const Buddyup = () => {
   return <h2>Buddyup</h2>
 };
 
-const Edit = () => {
-  return <h2>Edit</h2>
+const Profile = (props) => {
+  console.log(props);
+  return <h2>Profile</h2>
 };
 
 const NotFound = () => {
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/login" component={LogIn} />
           <Route path="/register" component={Register} />
           <Route path="/buddyup" component={Buddyup} />
-          <Route path="/edit" component={Edit} />
+          <Route path="/profile/:id" component={Profile} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
