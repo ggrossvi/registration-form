@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Header from "./components/Header";
 import './index.css';
 
@@ -25,7 +25,17 @@ const Buddyup = () => {
 
 const Profile = (props) => {
   console.log(props);
-  return <h2>Profile</h2>
+  return (
+    <div>
+      <h2>Profile</h2>
+      <Link to="/profile/10">Edit Profile</Link>
+    </div>
+  );
+};
+
+const EditProfile = (props) => {
+  console.log(props);
+  return <h2>Edit profile page</h2>;
 };
 
 const NotFound = () => {
@@ -41,7 +51,8 @@ const App = () => {
           <Route path="/login" component={LogIn} />
           <Route path="/register" component={Register} />
           <Route path="/buddyup" component={Buddyup} />
-          <Route path="/profile/:id" component={Profile} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/profile/:id" component={EditProfile} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
