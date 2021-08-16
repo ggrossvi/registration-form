@@ -6,6 +6,7 @@ import './index.css';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Header from "./components/Header";
 import './index.css';
+import Register from "./components/Register";
 
 const Home = () => {
   return <h2>Home</h2>
@@ -15,9 +16,9 @@ const LogIn = () => {
   return <h2>LogIn</h2>
 };
 
-const Register = () => {
-  return <h2>Register</h2>
-};
+// const Register = () => {
+//   return <h2>Register</h2>
+// };
 
 const Buddyup = () => {
   return <h2>Buddyup</h2>
@@ -53,7 +54,7 @@ const App = () => {
           <Route path="/buddyup" component={Buddyup} />
           <Route path="/profile" component={Profile} />
           <Route path="/profile/:id" component={EditProfile} />
-          <Route component={NotFound} />
+          
         </Switch>
       </BrowserRouter>
   );
@@ -62,7 +63,7 @@ const App = () => {
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <h1>Welcome to Walking Buddy</h1>
+    {/* <h1>Welcome to Walking Buddy</h1> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
