@@ -1,16 +1,41 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios'
 
-const BuddyList = (props) =>{
-    props.buddyData.map(({buddy},index) => ( 
-        <div>{buddy.first_name}</div>
+
+const BuddyList = (props) => {
+    //event handler needs 
+    const handleInviteClick = (e) => {
+        axios
+        .post("http://localhost:5000/buddy/email"),{
+
+        }
+    }
+
+    const { buddy_data } = props;
+    return props.buddy_data.map((buddy, buddy_id) => (
+        <Card key={buddy_id}>
+            <Card.Body>
+                <Card.Title>Name: {buddy.first_name} {buddy.last_name}</Card.Title>
+                <Card.Text>
+                    Zip:{buddy.zipcode}<br/>
+                    Email:{buddy.email}<br/>
+                    Morning: {buddy.morning} Afternoon: {buddy.afternoon}<br/> Evening: {buddy.evening}<br/>
+                </Card.Text>
+                <Button onClick={handleInviteClick}>Invite</Button>
+            </Card.Body>
+        </Card>
 
     )
 
     )
-    return <div></div>
-
-
+  
 
 }
+
+// function isEmptyOrSpaces(str){
+//     return str === null || str.match(/^ *$/) !== null;
+// }
 
 export default BuddyList;

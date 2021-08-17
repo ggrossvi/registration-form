@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { times } from "../utils/times";
 import axios from 'axios';
 import BuddyList from './BuddyList';
+import Card from 'react-bootstrap/Card';
 
 const baseURL = "http://localhost:5000";
 const times = [
@@ -66,6 +67,7 @@ function Register() {
         console.log("it worked!")
         console.log(response)
         setBuddyData(response.data);
+      // .catch((err) => console.log(err))
       });
   }
 

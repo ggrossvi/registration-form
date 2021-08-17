@@ -6,6 +6,7 @@ import './index.css';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Header from "./components/Header";
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./components/Register";
 
 const Home = () => {
