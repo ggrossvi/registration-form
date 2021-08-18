@@ -18,14 +18,14 @@ function Map() {
             defaultZoom={10}
             defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
         >
-            {buddyData.buddies.map(park => (
+            {buddyData.buddies.map(buddy => (
                 <Marker
-                    key={park.properties.PARK_ID}
+                    key={buddy.properties.PARK_ID}
                     position={{
-                        lat: park.geometry.coordinates[1],
-                        lng: park.geometry.coordinates[0]
+                        lat: buddy.geometry.coordinates[1],
+                        lng: buddy.geometry.coordinates[0]
                     }}
-                    onClick={() => { setSelectedBuddy(park); }}
+                    onClick={() => { setSelectedBuddy(buddy); }}
                     // icon={{
                     //     url: `/skateboarding.svg`,
                     //     scaledSize: new window.google.maps.Size(25, 25)
