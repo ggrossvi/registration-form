@@ -7,10 +7,10 @@ import axios from 'axios'
 const BuddyList = (props) => {
     //event handler needs 
     const handleInviteClick = (e) => {
-        axios
-        .post("http://localhost:5000/buddy/email"),{
+        // axios
+        // .post("http://localhost:5000/buddy/email"),{
 
-        }
+        // }
     }
 
     const { buddy_data } = props;

@@ -40,9 +40,9 @@ const EditProfile = (props) => {
   return <h2>Edit profile page</h2>;
 };
 
-const NotFound = () => {
-  return <h2>Page Not found.</h2>;
-};
+// const NotFound = () => {
+//   return <h2>Page Not found.</h2>;
+// };
 
 const App = () => {
   return (

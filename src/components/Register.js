@@ -3,8 +3,13 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import BuddyList from './BuddyList';
 import Card from 'react-bootstrap/Card';
+import Map from './Map';
+import {GoogleMap, withScriptjs, withGoogleMap} from "react-google-maps"
+// import nodeExternals from 'webpack-node-externals';
+
 
 const baseURL = "http://localhost:5000";
+const WrappedMap = withScriptjs(withGoogleMap(Map));
 const times = [
   {
       time: "Morning"
@@ -19,6 +24,9 @@ const times = [
 
 
 function Register() {
+  console.log("i am here")
+  console.log(process.env.REACT_APP_GOOGLE_KEY)
+  const [lookupEmail, setLookupEmail] = useState('');
   const [fname, setFname] = useState('');
   const[lname, setLname] = useState('');
   const [email, setEmail] = useState('');
@@ -31,6 +39,7 @@ function Register() {
   //Checkboxes hold time preference for walks
   const [checkboxes, setCheckboxes] = useState([false, false, false]);
   const [buddyData,setBuddyData] = useState([]);
+  const [isExisting,setIsExisting] = useState(false);
  
   // const [post, setPost] = React.useState(null);
 
@@ -39,6 +48,53 @@ function Register() {
   //     setPost(response.data);
   //   });
   // }, []);
+
+  function handleGetRecords() {
+  //update below
+    axios
+      .post("/buddy/register", {
+        // given_name and family_name have this because of login object having these names.
+        //left is database name
+        first_name: fname,
+        last_name: lname,
+        // given_name : fname,
+        // family_name: lname,
+        email: email,
+        // first_name: fname,
+        // last_name: "",
+        address: address,
+        apt: apt,
+        city: city,
+        state: state,
+        zipcode: zipcode,
+        morning: checkboxes[0],
+        afternoon: checkboxes[1],
+        evening: checkboxes[2],
+        bio: bio
+      })
+      .then((response) => {
+        console.log("it worked!")
+        console.log(response)
+        setBuddyData(response.data)
+      }).catch((err) => console.log(err));
+  }
+
+  function getRecordByEmail(event) {
+    event.preventDefault();
+    axios
+      .get(`/buddy/email/${lookupEmail}`)
+      .then((response) => {
+        console.log("it worked!")
+        console.log(response.data)
+        const record = response.data[0]
+
+        setEmail(record.email)
+        //if it's true then they can't edit email
+        setIsExisting(true)
+        // Put an error handler here
+        // if response.data
+      }).catch((err) => console.log(err));
+  }
 
   function createPost(event) {
     event.preventDefault();
@@ -66,9 +122,8 @@ function Register() {
       .then((response) => {
         console.log("it worked!")
         console.log(response)
-        setBuddyData(response.data);
-      // .catch((err) => console.log(err))
-      });
+        setBuddyData(response.data)
+      }).catch((err) => console.log(err));
   }
 
   // if (!post) {
@@ -76,7 +131,9 @@ function Register() {
   //   return "No post!"
   // };
 
-
+  const handleLookupEmailChange = event => {
+    setLookupEmail(event.target.value)
+  };
   const handleLnameChange = event => {
     setLname(event.target.value)
   };
@@ -127,6 +184,26 @@ function Register() {
 
   return (
     <div>
+    
+    <form onSubmit={getRecordByEmail}>
+       
+        <div>
+            <label>Email address</label>
+            <input
+            type="email"
+            name="lookupEmail"
+            placeholder="Enter lookup email"
+            onChange={handleLookupEmailChange}
+            value={lookupEmail}
+            />
+        </div>
+       
+          
+      <button type="submit">GET RECORD</button>
+    </form>
+
+
+
     <form onSubmit={createPost}>
         <div>
             <label>First name</label>
@@ -156,6 +233,7 @@ function Register() {
             placeholder="Enter email"
             onChange={handleEmailChange}
             value={email}
+            disabled={isExisting}
             />
         </div>
         <div>
@@ -245,9 +323,28 @@ function Register() {
             </ul>
           
       <button type="submit">Submit</button>
+      {/*if first thing thing is true it will return the 2nd
+      Write custome onClick function so it 
+      Declare function above api call 
+      */}
+      {isExisting && <button onClick = {handleGetRecords}>Get Records</button>}
     </form>
     <BuddyList buddy_data = {buddyData}/>
+
+      <div style= {{width:'100vw', height: '100vh'}}>
+
+        <WrappedMap 
+           googleMapURL= {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCalnnIIvWiASRzEqQPSaa6u-5xii3IRQI`}
+         
+          
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}          
+        />
+      </div>
+
     </div >
+    
   )
 }
 
