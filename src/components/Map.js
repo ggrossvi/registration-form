@@ -12,7 +12,7 @@ import React, { useState, useEffect } from "react";
 
 
 function Map() {
-    const [selectedPark, setSelectedPark] = useState(null);
+    const [selectedBuddy, setSelectedBuddy] = useState(null);
     return (
         <GoogleMap
             defaultZoom={10}
@@ -25,7 +25,7 @@ function Map() {
                         lat: park.geometry.coordinates[1],
                         lng: park.geometry.coordinates[0]
                     }}
-                    onClick={() => { setSelectedPark(park); }}
+                    onClick={() => { setSelectedBuddy(park); }}
                     // icon={{
                     //     url: `/skateboarding.svg`,
                     //     scaledSize: new window.google.maps.Size(25, 25)
@@ -33,17 +33,17 @@ function Map() {
                 />
             ))}
 
-            {selectedPark && (
+            {selectedBuddy && (
                 <InfoWindow
-                    onCloseClick={() => { setSelectedPark(null); }}
+                    onCloseClick={() => { setSelectedBuddy(null); }}
                     position={{
-                        lat: selectedPark.geometry.coordinates[1],
-                        lng: selectedPark.geometry.coordinates[0]
+                        lat: selectedBuddy.geometry.coordinates[1],
+                        lng: selectedBuddy.geometry.coordinates[0]
                     }}
                 >
                     <div>
-                        <h2>{selectedPark.properties.NAME}</h2>
-                        <p>{selectedPark.properties.DESCRIPTION}</p>
+                        <h2>{selectedBuddy.properties.NAME}</h2>
+                        <p>{selectedBuddy.properties.DESCRIPTION}</p>
                     </div>
                 </InfoWindow>
             )}
