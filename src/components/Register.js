@@ -5,7 +5,7 @@ import BuddyList from './BuddyList';
 import Card from 'react-bootstrap/Card';
 import Map from './Map';
 import {GoogleMap, withScriptjs, withGoogleMap} from "react-google-maps"
-// import nodeExternals from 'webpack-node-externals';
+
 
 
 const baseURL = "http://localhost:5000";
