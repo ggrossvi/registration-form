@@ -26,3 +26,6 @@ yarn-debug.log*
 yarn-error.log*
 
 venv/
+
+# ignore my to do list
+todo.txt

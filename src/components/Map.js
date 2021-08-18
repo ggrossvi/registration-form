@@ -16,7 +16,7 @@ function Map() {
     return (
         <GoogleMap
             defaultZoom={10}
-            defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
+            defaultCenter={{ lat: 47.6062, lng: 122.3321}}
         >
             {buddyData.buddies.map(buddy => (
                 <Marker
