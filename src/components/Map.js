@@ -20,7 +20,7 @@ function Map() {
         >
             {buddyData.buddies.map(buddy => (
                 <Marker
-                    key={buddy.properties.PARK_ID}
+                    key={buddy.properties.BUDDY_ID}
                     position={{
                         lat: buddy.geometry.coordinates[1],
                         lng: buddy.geometry.coordinates[0]
