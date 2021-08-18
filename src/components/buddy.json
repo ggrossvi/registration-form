@@ -7,7 +7,7 @@
         "DESCRIPTION": "I love walking with my dog"
       },
       "geometry": {
-        "coordinates": [-75.3372987731628, 45.383321536272049]
+        "coordinates": [-47, 45.383321536272049]
       }
     }, {
       "properties": {
@@ -22,10 +22,10 @@
       "properties": {
         "BUDDY_ID": 1157,
         "NAME": "Mark M",
-        "DESCRIPTION": "Concrete bowl, 7,000 sq ft"
+        "DESCRIPTION": "I love gardening"
       },
       "geometry": {
-        "coordinates": [-75.898610599532319, 45.295014379864874]
+        "coordinates": [47.6062, -122.3321]
       }
     }]
   }

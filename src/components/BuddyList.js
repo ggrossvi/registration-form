@@ -6,12 +6,13 @@ import axios from 'axios'
 
 const BuddyList = (props) => {
     //event handler needs 
-    const handleInviteClick = (e) => {
-        // axios
-        // .post("http://localhost:5000/buddy/email"),{
+    // const handleInviteClick = (e) => {
+    //     axios
+    //     .post("http://localhost:5000/buddy/email"),{
 
-        // }
-    }
+    //     }
+    // }
+
 
     const { buddy_data } = props;
     return props.buddy_data.map((buddy, buddy_id) => (
@@ -23,7 +24,8 @@ const BuddyList = (props) => {
                     Email:{buddy.email}<br/>
                     Morning: {buddy.morning} Afternoon: {buddy.afternoon}<br/> Evening: {buddy.evening}<br/>
                 </Card.Text>
-                <Button onClick={handleInviteClick}>Invite</Button>
+                {/* <Button onClick={handleInviteClick}>Invite</Button> */}
+                <a href={`mailto:${buddy.email}?subject=Testing out mailto!`}>First Example</a>
             </Card.Body>
         </Card>
 
