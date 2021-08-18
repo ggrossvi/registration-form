@@ -4,7 +4,7 @@
 //https://github.com/istarkov/google-map-clustering-example
 
 import { GoogleMap, withScriptsjs, Marker, withGoogleMap, InfoWindow } from "react-google-maps";
-import * as parkData from "./buddy.json";
+import * as buddyData from "./buddy.json";
 // import mapStyles from "./mapStyles";
 // import nodeExternals from 'webpack-node-externals';
 import React, { useState, useEffect } from "react";
@@ -18,7 +18,7 @@ function Map() {
             defaultZoom={10}
             defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
         >
-            {parkData.buddies.map(park => (
+            {buddyData.buddies.map(park => (
                 <Marker
                     key={park.properties.PARK_ID}
                     position={{
