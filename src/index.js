@@ -8,14 +8,16 @@ import Header from "./components/Header";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./components/Register";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
 
 const Home = () => {
   return <h2>Home</h2>
 };
 
-const LogIn = () => {
-  return <h2>LogIn</h2>
-};
+// const LogIn = () => {
+//   return <h2>LogIn</h2>
+// };
 
 // const Register = () => {
 //   return <h2>Register</h2>
@@ -50,11 +52,13 @@ const App = () => {
         <Header />
         <Switch>
           <Route path="/" component={Home} exact = {true} />
-          <Route path="/login" component={LogIn} />
+          <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
           <Route path="/register" component={Register} />
           <Route path="/buddyup" component={Buddyup} />
           <Route path="/profile" component={Profile} />
           <Route path="/profile/:id" component={EditProfile} />
+
           
         </Switch>
       </BrowserRouter>
