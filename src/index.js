@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+// import Home from "./components/Home";
 
 const Home = () => {
   return <h2>Home</h2>

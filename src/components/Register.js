@@ -5,6 +5,7 @@ import BuddyList from './BuddyList';
 import Card from 'react-bootstrap/Card';
 import Map from './Map';
 import {GoogleMap, withScriptjs, withGoogleMap} from "react-google-maps"
+// import './src/index.css'
 
 
 
@@ -185,7 +186,7 @@ function Register() {
   return (
     <div>
     
-    <form onSubmit={getRecordByEmail}>
+    {/* <form onSubmit={getRecordByEmail}>
        
         <div>
             <label>Email address</label>
@@ -200,8 +201,26 @@ function Register() {
        
           
       <button type="submit">GET RECORD</button>
-    </form>
+    </form> */}
 
+<p>
+    <section>
+    
+      <div style= {{width:'100vw', height: '100vh'}}>
+     
+      <WrappedMap 
+           googleMapURL= {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCalnnIIvWiASRzEqQPSaa6u-5xii3IRQI`}
+         
+          
+          loadingElement={<div style={{ height: `90%` }} />}
+          containerElement={<div style={{ height: `90%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}          
+        />
+       
+      </div>
+      
+      </section>
+      </p> 
 
 
     <form onSubmit={createPost}>
@@ -329,11 +348,16 @@ function Register() {
       */}
       {isExisting && <button onClick = {handleGetRecords}>Get Records</button>}
     </form>
-    <BuddyList buddy_data = {buddyData}/>
-
+    <br/>
+    <section>
+    <BuddyList buddy_data = {buddyData}/><br/>
+    </section>
+    {/* <p>
+    <section>
+    
       <div style= {{width:'100vw', height: '100vh'}}>
-
-        <WrappedMap 
+     
+      <WrappedMap 
            googleMapURL= {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCalnnIIvWiASRzEqQPSaa6u-5xii3IRQI`}
          
           
@@ -341,7 +365,11 @@ function Register() {
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}          
         />
+       
       </div>
+      
+      </section>
+      </p>  */}
 
     </div >
     

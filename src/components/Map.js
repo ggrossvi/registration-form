@@ -15,7 +15,7 @@ function Map() {
     const [selectedBuddy, setSelectedBuddy] = useState(null);
     return (
         <GoogleMap
-            defaultZoom={10}
+            defaultZoom={11}
             defaultCenter={{ lat: 47.6062, lng: -122.3321}}
         >
             {buddyData.buddies.map(buddy => (
@@ -37,8 +37,8 @@ function Map() {
                 <InfoWindow
                     onCloseClick={() => { setSelectedBuddy(null); }}
                     position={{
-                        lat: selectedBuddy.geometry.coordinates[1],
-                        lng: selectedBuddy.geometry.coordinates[0]
+                        lat: selectedBuddy.geometry.coordinates[0],
+                        lng: selectedBuddy.geometry.coordinates[1]
                     }}
                 >
                     <div>

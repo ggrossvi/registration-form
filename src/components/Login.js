@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+// import Carousel from './Carousel';
+// import Profile from './Profile';
+// import Carkeek from './carkeek.jpg';
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
@@ -47,7 +50,7 @@ function Login(props) {
     console.log('Login failed: res:', res);
     alert(
       `Failed to login.😢 ` 
-    //   Please ping this to repo owner twitter.com/sivanesh_fiz
+    
     );
   };
 
@@ -62,7 +65,10 @@ function Login(props) {
         style={{ marginTop: '100px' }}
         isSignedIn={true}
       />
+      {/* <carousel/> */}
+     
     </div>
+    
   );
 }
 
