@@ -7,7 +7,7 @@
         "DESCRIPTION": "I love walking with my dog"
       },
       "geometry": {
-        "coordinates": [-47, 45.383321536272049]
+        "coordinates": [-47, -122.377690]
       }
     }, {
       "properties": {
@@ -16,7 +16,7 @@
         "DESCRIPTION": "I love biking"
       },
       "geometry": {
-        "coordinates": [-75.546518086577947, 45.467134581917357]
+        "coordinates": [42.078892, -122.377130]
       }
     }, {
       "properties": {

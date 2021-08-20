@@ -22,9 +22,11 @@ function Map() {
                 <Marker
                     key={buddy.properties.BUDDY_ID}
                     position={{
-                        lat: buddy.geometry.coordinates[1],
-                        lng: buddy.geometry.coordinates[0]
+                        lat: buddy.geometry.coordinates[0],
+                        
+                        lng: buddy.geometry.coordinates[1]
                     }}
+            
                     onClick={() => { setSelectedBuddy(buddy); }}
                     // icon={{
                     //     url: `/skateboarding.svg`,
