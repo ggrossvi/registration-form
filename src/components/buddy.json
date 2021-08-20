@@ -1,33 +1,34 @@
-
 {
-    "buddies": [{
+  "buddies": [
+    {
       "properties": {
         "BUDDY_ID": 960,
         "NAME": "Sam D",
         "DESCRIPTION": "I love walking with my dog"
       },
       "geometry": {
-        "coordinates": [-47, -122.377690]
+        "coordinates": [48, -122.37769]
       }
-    }, {
+    },
+    {
       "properties": {
         "BUDDY_ID": 1219,
         "NAME": "Randy R",
         "DESCRIPTION": "I love biking"
       },
       "geometry": {
-        "coordinates": [42.078892, -122.377130]
+        "coordinates": [50.078892, -125.37713]
       }
-    }, {
+    },
+    {
       "properties": {
         "BUDDY_ID": 1157,
         "NAME": "Mark M",
         "DESCRIPTION": "I love gardening"
       },
       "geometry": {
-        "coordinates": [47.6062, -122.3321]
+        "coordinates": [40.6062, -127.3321]
       }
-    }]
-  }
-  
-  
+    }
+  ]
+}

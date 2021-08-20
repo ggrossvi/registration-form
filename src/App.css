@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  color: red;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  color: red;
+}
